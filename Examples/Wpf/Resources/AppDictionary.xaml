@@ -29,7 +29,7 @@
     </Style>
 
     <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-        <Setter Property="controls:ButtonHelper.PreserveTextCase" Value="True"/>
+        <Setter Property="controls:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
         <Setter Property="Background" Value="#1565C0"></Setter>
         <Setter Property="Foreground" Value="White"></Setter>
         <Setter Property="Padding" Value="20 10"></Setter>
