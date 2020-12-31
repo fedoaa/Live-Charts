@@ -6,7 +6,17 @@
     <RootNamespace>LiveCharts</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <DefineConstants>NET45</DefineConstants>
+  </PropertyGroup>
+
   <PropertyGroup>
-    <DefineConstants Condition="'$(TargetFramework)' == 'netstandard2.0'">NET45</DefineConstants>
+    <PackageId>LiveCharts.Core</PackageId>
+    <PackageVersion>0.9.8</PackageVersion>
+    <Authors>Beto Rodriguez,fedoaa</Authors>
+    <Description>Simple, flexible, interactive and powerful data visualization for .Net. This fork is based on https://github.com/Live-Charts/Live-Charts. </Description>
+    <PackageTags>livechart, live, chart, charting, plot, plots, plotting, graph, graphs, graphing, data, wpf, windows, presentation, foundation, format</PackageTags>
+    <RepositoryUrl>https://github.com/fedoaa/Live-Charts</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 </Project>
