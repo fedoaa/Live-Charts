@@ -583,7 +583,7 @@ namespace LiveCharts.Charts
         protected void StackPoints(IEnumerable<ISeriesView> stackables, AxisOrientation stackAt, int stackIndex,
             StackMode mode = StackMode.Values)
         {
-            var groupedStackables = stackables.GroupBy(s => s is IGroupedStackedSeriesView ? (s as IGroupedStackedSeriesView).Grouping : 0).ToList();
+            var groupedStackables = stackables.GroupBy(s => (s as IGroupedStackedSeriesView)?.Grouping).ToList();
 
             foreach (var groupedStack in groupedStackables)
             {
@@ -672,13 +672,13 @@ namespace LiveCharts.Charts
                             if (double.IsNaN(ax.MinValue))
                                 ax.BotLimit = mostLeft == 0.0
                                     ? 0.0
-                                    : Math.Floor(mostLeft/ax.S)*ax.S;
+                                    : (Math.Floor(mostLeft/ax.S) - 1.0)*ax.S;
                         if (mostRight > ax.TopLimit)
                             // ReSharper disable once CompareOfFloatsByEqualityOperator
                             if (double.IsNaN(ax.MaxValue))
                                 ax.TopLimit = mostRight == 0.0
                                     ? 0.0
-                                    : (Math.Floor(mostRight/ax.S) + 1.0) *ax.S;
+                                    : (Math.Floor(mostRight/ax.S) + 1.0)*ax.S;
                     }
                 }
 
@@ -698,13 +698,13 @@ namespace LiveCharts.Charts
                             if (double.IsNaN(ay.MinValue))
                                 ay.BotLimit = mostLeft == 0.0
                                     ? 0.0
-                                    : Math.Floor(mostLeft/ay.S)*ay.S;
+                                    : (Math.Floor(mostLeft/ay.S) - 1.0)*ay.S;
                         if (mostRight > ay.TopLimit)
                             // ReSharper disable once CompareOfFloatsByEqualityOperator
                             if (double.IsNaN(ay.MaxValue))
                                 ay.TopLimit = mostRight == 0.0
                                     ? 0.0
-                                    : (Math.Floor(mostRight/ay.S) + 1.0) *ay.S;
+                                    : (Math.Floor(mostRight/ay.S) + 1.0)*ay.S;
                     }
                 }
             }
